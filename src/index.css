@@ -2,10 +2,92 @@
 
 @theme {
   --font-sans: "Inter", system-ui, sans-serif;
+  --color-primary: var(--primary);
+  --color-primary-focus: var(--primary-focus);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-surface-hover: var(--surface-hover);
+  --color-background: var(--background);
+  --color-text-main: var(--text-main);
+  --color-text-muted: var(--text-muted);
+  --color-success: var(--success);
+  --color-success-bg: var(--success-bg);
+  --color-warning: var(--warning);
+  --color-warning-bg: var(--warning-bg);
+  --color-border: var(--border);
+}
+
+:root {
+  /* Piggyvest Classic (Default Light) */
+  --primary: #0d60d8;
+  --primary-focus: #082552;
+  --surface: #ffffff;
+  --surface-elevated: #f9fafb;
+  --surface-hover: #f3f4f6;
+  --background: #f4f7fb;
+  --text-main: #1f2937;
+  --text-muted: #6b7280;
+  --success: #16a34a;
+  --success-bg: #f0fdf4;
+  --warning: #f59e0b;
+  --warning-bg: #fffbeb;
+  --border: #f3f4f6;
+}
+
+[data-theme="dark"] {
+  /* Midnight Navy */
+  --primary: #3b82f6; 
+  --primary-focus: #1e3a8a;
+  --surface: #1e293b; 
+  --surface-elevated: #0f172a; 
+  --surface-hover: #334155; 
+  --background: #020617; 
+  --text-main: #f8fafc; 
+  --text-muted: #94a3b8; 
+  --success: #22c55e;
+  --success-bg: rgba(34, 197, 94, 0.1);
+  --warning: #fbbf24;
+  --warning-bg: rgba(251, 191, 36, 0.1);
+  --border: #334155;
+}
+
+[data-theme="emerald"] {
+  /* Cowrywise style */
+  --primary: #059669; 
+  --primary-focus: #064e3b; 
+  --surface: #ffffff;
+  --surface-elevated: #f0fdf4; 
+  --surface-hover: #e0e7ff; 
+  --background: #f8fafc;
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --success: #16a34a;
+  --success-bg: #dcfce7;
+  --warning: #f59e0b;
+  --warning-bg: #fef3c7;
+  --border: #e2e8f0;
+}
+
+[data-theme="sunset"] {
+  /* Sunset Gold */
+  --primary: #d97706; 
+  --primary-focus: #78350f; 
+  --surface: #1c1917; 
+  --surface-elevated: #292524; 
+  --surface-hover: #44403c; 
+  --background: #0c0a09; 
+  --text-main: #fafaf9; 
+  --text-muted: #a8a29e; 
+  --success: #22c55e;
+  --success-bg: rgba(34, 197, 94, 0.15);
+  --warning: #fbbf24;
+  --warning-bg: rgba(251, 191, 36, 0.15);
+  --border: #44403c; 
 }
 
 body {
-  font-family: "Inter", system-ui, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: var(--font-sans);
+  background-color: var(--background);
+  color: var(--text-main);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
