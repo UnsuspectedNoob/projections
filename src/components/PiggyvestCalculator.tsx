@@ -80,6 +80,9 @@ const DatePickerTrigger = ({ date, setDate, disabledDays, label, badge }: any) =
                 defaultMonth={date || new Date()}
                 onSelect={(d) => { if(d) { setDate(d); setIsOpen(false); } }}
                 disabled={disabledDays}
+                captionLayout="dropdown-buttons"
+                fromYear={2020}
+                toYear={2050}
               />
             </div>
           </motion.div>
