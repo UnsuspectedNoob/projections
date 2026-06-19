@@ -41,7 +41,7 @@ const DatePickerTrigger = ({ date, setDate, disabledDays, label, badge }: any) =
   };
 
   return (
-    <div className="relative" ref={popoverRef}>
+    <div className={`relative ${isOpen ? 'z-50' : 'z-10'}`} ref={popoverRef}>
       <label className="text-sm font-medium text-text-muted flex items-center justify-between mb-2">
         {label}
         {badge && <span className="text-xs text-primary font-semibold bg-primary/10 px-2 py-1 rounded-md">{badge}</span>}
@@ -274,7 +274,7 @@ export default function PiggyvestCalculator() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.1 }}
-            className="lg:col-span-5 bg-surface rounded-3xl shadow-sm border border-border p-6 md:p-8 space-y-6 relative overflow-visible z-10 transition-colors duration-300"
+            className="lg:col-span-5 bg-surface rounded-3xl shadow-sm border border-border p-6 md:p-8 space-y-6 relative overflow-visible z-30 transition-colors duration-300"
           >
             <h2 className="text-xl font-bold text-text-main flex items-center gap-2 border-b border-border pb-4">
               <Wallet className="text-primary" size={24} /> Investment Details
@@ -338,7 +338,7 @@ export default function PiggyvestCalculator() {
                 </div>
               </div>
 
-              <div className="pt-2 border-t border-border flex gap-4">
+              <div className="pt-2 border-t border-border flex flex-col sm:flex-row gap-4">
                 <div className="flex-1">
                   <DatePickerTrigger 
                     date={startDate} 
@@ -362,7 +362,7 @@ export default function PiggyvestCalculator() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 }}
-            className="lg:col-span-7 flex flex-col gap-6"
+            className="lg:col-span-7 flex flex-col gap-6 relative z-10"
           >
             {/* Dynamic themed gradient card */}
             <div 
@@ -388,7 +388,7 @@ export default function PiggyvestCalculator() {
                   {formatNaira(calcData.finalBalance)}
                 </div>
 
-                <div className="grid grid-cols-2 gap-4 border-t border-white/20 pt-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-white/20 pt-6">
                   <div>
                     <p className="text-white/80 text-sm mb-1">Total Invested</p>
                     <p className="text-xl font-bold">{formatNaira((Number(principal) || 0) + calcData.totalContributions)}</p>
@@ -401,23 +401,23 @@ export default function PiggyvestCalculator() {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="bg-surface rounded-3xl p-6 shadow-sm border border-border flex items-center gap-4 transition-colors duration-300">
-                <div className="p-3 bg-success-bg text-success rounded-2xl">
+                <div className="p-3 bg-success-bg text-success rounded-2xl shrink-0">
                   <TrendingUp size={24} />
                 </div>
-                <div>
-                  <p className="text-sm text-text-muted font-medium">Extra vs Simple Interest</p>
-                  <p className="text-lg font-bold text-text-main">+{formatNaira(calcData.extraGained)}</p>
+                <div className="min-w-0">
+                  <p className="text-sm text-text-muted font-medium truncate">Extra vs Simple Interest</p>
+                  <p className="text-lg font-bold text-text-main truncate">+{formatNaira(calcData.extraGained)}</p>
                 </div>
               </div>
               <div className="bg-surface rounded-3xl p-6 shadow-sm border border-border flex items-center gap-4 transition-colors duration-300">
-                <div className="p-3 bg-primary/10 text-primary rounded-2xl">
+                <div className="p-3 bg-primary/10 text-primary rounded-2xl shrink-0">
                   <CalendarIcon size={24} />
                 </div>
-                <div>
-                  <p className="text-sm text-text-muted font-medium">Total Accrued</p>
-                  <p className="text-lg font-bold text-text-main">
+                <div className="min-w-0">
+                  <p className="text-sm text-text-muted font-medium truncate">Total Accrued</p>
+                  <p className="text-lg font-bold text-text-main truncate">
                     {formatNaira(calcData.totalInterestAccrued)}
                   </p>
                 </div>
