@@ -1,73 +1,53 @@
-# React + TypeScript + Vite
+# Piggyvest Projection Calculator 🐖💰
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A highly precise, visually stunning web application built to simulate and project your wealth using Piggyvest's exact 1st-of-the-month compound interest mechanics.
 
-Currently, two official plugins are available:
+## Features ✨
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+*   **Exact Math Engine:** Unlike generic compound interest calculators, this engine replicates Piggyvest's exact daily accrual and strict 1st-of-the-month payout/auto-save mechanics.
+*   **Pristine UI:** Built with Tailwind CSS v4, Framer Motion, and Lucide Icons for a beautiful, premium, and glassmorphic fintech aesthetic.
+*   **Dynamic Theming:** Instantly toggle between four bespoke themes (Classic Blue, Midnight Navy, Emerald Growth, and Sunset Gold) via an animated dropdown menu. The themes automatically hook into the SVG chart gradients!
+*   **Interactive Dates:** Custom `react-day-picker` calendars with smart bounding, "TODAY" shortcuts, and native dropdown-button navigation spanning from 2020 to 2050.
+*   **Data Visualization:** Interactive Area Charts powered by Recharts that perfectly map out your monthly growth step-by-step.
+*   **Real-time Formatting:** Localized `en-NG` currency formatting (₦) with smart zero-prefix handling directly in the inputs.
 
-## React Compiler
+## Tech Stack 🛠️
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+*   **Framework:** React 19 + Vite
+*   **Styling:** Tailwind CSS v4
+*   **Animations:** Framer Motion
+*   **Icons:** Lucide React
+*   **Charts:** Recharts
+*   **Dates:** date-fns + react-day-picker
 
-## Expanding the ESLint configuration
+## Getting Started 🚀
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+To run the application locally:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+1.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+2.  **Run the development server:**
+    ```bash
+    npm run dev
+    ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+3.  **Build for production:**
+    ```bash
+    npm run build
+    ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Vercel Deployment ☁️
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+This project is fully optimized for 1-click deployment to [Vercel](https://vercel.com).
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Since it is built with Vite, Vercel will automatically detect the settings. No custom `vercel.json` is required. 
+Simply import your GitHub repository into Vercel and it will automatically use:
+*   **Framework Preset:** Vite
+*   **Build Command:** `npm run build`
+*   **Output Directory:** `dist`
+
+### One-Click Deploy
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
