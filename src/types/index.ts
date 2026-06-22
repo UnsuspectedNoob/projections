@@ -11,11 +11,14 @@ export interface BreakdownItem {
 export interface CalculationResult {
   breakdown: BreakdownItem[];
   finalBalance: number;
-  totalInterestAccrued: number; // Total interest calculated
-  totalInterestCredited: number; // Total interest actually paid out on the 1st
+  totalInterestAccrued: number; 
+  totalInterestCredited: number; 
   totalContributions: number;
   simpleInterest: number;
   extraGained: number;
   maxInterest: number;
-  pendingInterest: number; // Interest accrued but not yet paid out because the end date wasn't the 1st
+  pendingInterest: number; 
+  inflationAdjustedBalance: number; // Value of the final balance in today's money
+  trueGoalReachedDate: Date | null; // The exact date the target goal was crossed in infinite projection
+  goalStatus: 'REACHED' | 'IMPOSSIBLE' | 'OVER_100_YEARS' | 'PENDING';
 }
